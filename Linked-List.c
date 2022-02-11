@@ -9,6 +9,7 @@ struct Node
 
 void printList(struct Node *n)
 {
+    printf("\nOutput of the List \n");
     while (n != NULL)
     {
         printf("%d", n->data);
@@ -16,6 +17,26 @@ void printList(struct Node *n)
 
         printf("\n");
     }
+}
+
+void addNode(struct Node *n)
+{
+    int num;
+    struct Node *new = NULL;
+    new = malloc(sizeof(struct Node));
+
+    printf("Enter Your Number \n");
+    scanf("%d", &num);
+
+    new->data = num;
+    new->next = NULL;
+
+    while (n->next != NULL)
+    {
+        n = n->next;
+    }
+
+    n->next = new;
 }
 
 int main()
@@ -36,6 +57,8 @@ int main()
 
     third->data = 3;
     third->next = NULL;
+
+    addNode(head);
 
     printList(head);
 
