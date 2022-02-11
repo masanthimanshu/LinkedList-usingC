@@ -18,6 +18,22 @@ void printList(struct Node *n)
     }
 }
 
+void addNode(struct Node *n)
+{
+    struct Node *new = NULL;
+    new = malloc(sizeof(struct Node));
+
+    new->data = 4;
+    new->next = NULL;
+
+    while (n->next != NULL)
+    {
+        n = n->next;
+    }
+
+    n->next = new;
+}
+
 int main()
 {
     struct Node *head = NULL;
@@ -36,6 +52,8 @@ int main()
 
     third->data = 3;
     third->next = NULL;
+
+    addNode(head);
 
     printList(head);
 
